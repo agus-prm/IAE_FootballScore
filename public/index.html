@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Football Score Hub</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <header>
+    <div class="container header-inner">
+      <div>
+        <h1 class="title">Football Score Hub</h1>
+        <p class="subtitle">Live scores, fixtures, and standings</p>
+      </div>
+
+      <div class="badge">API Ready</div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div>
+        <p class="eyebrow">Football Dashboard</p>
+        <h2>Pantau skor bola, jadwal, dan klasemen dalam satu halaman.</h2>
+        <p class="desc">
+          Frontend ini disiapkan untuk terhubung ke backend Express. Nanti data akan diambil dari football-data.org.
+        </p>
+      </div>
+
+      <div class="card shadow">
+        <div class="stats">
+          <div class="stat-box">
+            <p class="stat-label">Live Matches</p>
+            <p id="hero-live-count" class="stat-value">0</p>
+          </div>
+          <div class="stat-box">
+            <p class="stat-label">Competitions</p>
+            <p id="hero-competition-name" class="stat-value small">Premier League</p>
+          </div>
+          <div class="stat-box">
+            <p class="stat-label">Matchday</p>
+            <p id="hero-matchday" class="stat-value">-</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card controls">
+      <div class="controls-grid">
+        <div>
+          <label for="competition-select">Competition</label>
+          <select id="competition-select">
+            <option value="PL">Premier League</option>
+            <option value="PD">La Liga</option>
+            <option value="SA">Serie A</option>
+            <option value="BL1">Bundesliga</option>
+            <option value="FL1">Ligue 1</option>
+            <option value="CL">Champions League</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="status-select">Status</label>
+          <select id="status-select">
+            <option value="IN_PLAY">Live</option>
+            <option value="SCHEDULED" selected>Scheduled</option>
+            <option value="FINISHED">Finished</option>
+          </select>
+        </div>
+
+        <div>
+          <button id="load-btn">Load Data</button>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <h3>Matches</h3>
+        <p id="matches-info" class="section-info">Loading data...</p>
+      </div>
+
+      <div id="matches-container" class="matches"></div>
+    </section>
+
+    <section class="grid-bottom">
+      <div class="card">
+        <div style="padding: 0 0 16px 0; border-bottom: 1px solid rgba(255,255,255,0.1);">
+          <h3 style="margin: 0; font-size: 1.6rem;">Standings</h3>
+          <p style="margin: 6px 0 0; color: #94a3b8;">Klasemen kompetisi yang dipilih</p>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Team</th>
+                <th class="center">P</th>
+                <th class="center">W</th>
+                <th class="center">D</th>
+                <th class="center">L</th>
+                <th class="center">GD</th>
+                <th class="center">Pts</th>
+              </tr>
+            </thead>
+            <tbody id="standings-body"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3 style="margin: 0; font-size: 1.8rem;">League Summary</h3>
+
+        <div class="summary-box">
+          <p class="summary-label">Selected League</p>
+          <p id="summary-league" class="summary-value">Premier League</p>
+        </div>
+
+        <div class="summary-box">
+          <p class="summary-label">Top Team</p>
+          <p id="summary-top-team" class="summary-value">-</p>
+        </div>
+
+        <div class="summary-box">
+          <p class="summary-label">Top Points</p>
+          <p id="summary-top-points" class="summary-value">-</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="./app.js"></script>
+</body>
+</html>
